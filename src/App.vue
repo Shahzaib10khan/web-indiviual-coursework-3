@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable  -->
   <div class="container">
-	  
+	  	<Lessons />
 		<!-- Checkout -->
 		<div v-if="checkout">
 			<button class="btn btn-primary" v-on:click="checkout = false">Back</button>
@@ -62,12 +62,13 @@
 </template>
 
 <script>
+import Lessons from './components/Lessons.vue'
 
 export default {
 	/* eslint-disable */ 
 	name: 'App',
 	components: {
-		
+		Lessons
 	},
   	data() {
 		return{
