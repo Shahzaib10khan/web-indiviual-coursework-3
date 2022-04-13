@@ -38,7 +38,7 @@
 						<div class="text-danger">{{errors.phone}}</div>
 					</div>
 					<button type="submit" class="btn btn-primary" :disabled="successAlert || !isValid">Checkout</button>
-					</form>
+				</form>
 			</div>
 		</div>
 			
@@ -152,7 +152,7 @@ export default{
 				this.errors.phone = "You must have enter 10 digits."
 				return;
 			}else{
-				isValid = true;
+				this.isValid = true;
 			}
 			let user = {full_name: this.name, phone: this.phone}
 			const requestOptions = {
