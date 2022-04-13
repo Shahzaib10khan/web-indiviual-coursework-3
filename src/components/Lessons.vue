@@ -1,6 +1,7 @@
 <template>
 <!-- eslint-disable   -->
-  <div class="row" v-if="!checkout">
+	<div>
+		<div class="row" v-if="!checkout">
 			<div class="col-1">
 				<div class="form text-white" style="margin-left: -50px; margin-top: 25px;">
 					<h3>Sort By:</h3>
@@ -68,12 +69,18 @@
 				<button class="btn btn-primary" v-on:click="checkout=true" :disabled="cart.length <= 0">Cart ({{cart.length}})</button>
 			</div>
 		</div>
+		<Cart v-if="checkout" :cart="cart"/>
+	</div>
 </template>
 
 <script>
 /* eslint-disable */ 
+import Cart from './Cart'
 export default {
   name: 'Lessons',
+  components:{
+	  Cart
+  },
   props: {
     allCourses: Array
   },
@@ -84,6 +91,7 @@ export default {
 			phone: '',
 			name: ''
 		},
+		checkout: false,
 		filter: '',
 		sort: '',
 		searchData: '',
