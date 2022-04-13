@@ -167,7 +167,7 @@ export default{
 					console.log(this.cart);
 					setTimeout(() => {
 						this.successAlert = false;
-						this.$parent>checkout = false;
+						this.$parent.checkout = false;
 						$('#successModal').modal('hide');
 					}, 3000);
 				});
