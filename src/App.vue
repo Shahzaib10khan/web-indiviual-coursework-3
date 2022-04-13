@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable  -->
   <div class="container">
-	  	<Lessons />
+	  	<Lessons :allCourses="allCourses"/>
 		<!-- Checkout -->
 		<div v-if="checkout">
 			<button class="btn btn-primary" v-on:click="checkout = false">Back</button>
