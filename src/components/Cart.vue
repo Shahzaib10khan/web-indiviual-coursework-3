@@ -9,14 +9,14 @@
 					<div class="col-4" v-for="(subject, index) in cart" :key="subject.id">
 						<div class="card" style="width: 18rem;">
 							<div class="text-center">
-								<img class="card-img-top":src="subject.thumbnail" style="width: 128px; height: 128px;" alt="Card image cap">
+								<img class="card-img-top" :src="subject.thumbnail" style="width: 128px; height: 128px;" alt="Card image cap">
 							</div>
 							<div class="card-body">
 								<h5 class="card-title">{{subject.course}}</h5>
 								<p class="card-text">{{subject.description}}</p>
 								<div class="d-flex justify-content-between">
 									<strong>Qty: {{subject.reserved}} </strong>
-									<button class="btn btn-md btn-danger" v-on:click="removeFromCart(subject)">Delete</i></button>
+									<button class="btn btn-md btn-danger" v-on:click="removeFromCart(subject)"> Delete</button>
 								</div>
 								
 							</div>
@@ -86,29 +86,7 @@ export default{
     },
     methods:{
 		removeFromCart(subject){
-			console.log(subject)
-			if (this.cart.includes(subject)) {
-				subject.space += 1;
-				
-				if (subject.reserved > 0) {
-					subject.reserved -= 1;
-				}
-				if (subject.reserved == 0) {
-					this.cart = this.cart.filter(obj => {
-						return obj.id != subject.id
-					})
-					console.log(subject)
-				}
-			}
-			
-			// this.cart.forEach((el) => {
-			//     subject.space += 1;
-			//     subject.reserved -= 1;
-			//     console.log(subject)
-			//     if (subject.reserved == 0) {
-			//         this.cart.pop(subject)
-			//     }
-			// });
+			this.$emit('removeFromCart', subject)
 		},
 
 		validate(){
